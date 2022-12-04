@@ -7,11 +7,14 @@ import
 function ProjectCard(props)
 {
     return(
-        <Card overflow="hidden">
-            <a href={props.Href}>
-                <Image src={props.ImageLink}/>
-            </a>
-        </Card>
+        <a href={props.Href}>
+            <Card overflow="hidden" w={[90, 170, 200]} h={[150, 240, 270]}>
+                    <Image
+                    width="100%" 
+                    height="100%" 
+                    src={props.ImageLink}/>
+            </Card>
+        </a>
     )
 };
 

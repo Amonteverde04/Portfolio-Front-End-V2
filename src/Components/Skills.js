@@ -9,51 +9,51 @@ import
 function Skills()
 {
     return(
-        <Grid>
+        <Grid w={["100%","70%"]}>
             <VStack spacing={0}>
-                <Text fontSize="25">Skills</Text>
-                <Grid templateColumns="repeat(2, 1fr)">
+                <Text fontSize={[25,35]}>Skills</Text>
+                <Grid templateColumns={["repeat(2, 1fr)", "repeat(2, 9.2em)"]}>
                     <GridItem textAlign="left">
-                        <Text fontSize="15">Javascript</Text>                        
+                        <Text fontSize={[15,20]}>Javascript</Text>                        
                     </GridItem>
                     <GridItem textAlign="right">
-                        <Text fontSize="15">React</Text>
+                        <Text fontSize={[15,20]}>React</Text>
                     </GridItem>
                     <GridItem textAlign="left">
-                        <Text fontSize="15">C#</Text>                        
+                        <Text fontSize={[15,20]}>C#</Text>                        
                     </GridItem>
                     <GridItem textAlign="right">
-                        <Text fontSize="15">Blazor</Text>
+                        <Text fontSize={[15,20]}>Blazor</Text>
                     </GridItem>
                     <GridItem textAlign="left">
-                        <Text fontSize="15">Node.js</Text>                        
+                        <Text fontSize={[15,20]}>Node.js</Text>                        
                     </GridItem>
                     <GridItem textAlign="right">
-                        <Text fontSize="15">Next.js</Text>
+                        <Text fontSize={[15,20]}>Next.js</Text>
                     </GridItem>
                     <GridItem textAlign="left">
-                        <Text fontSize="15">C++</Text>                        
+                        <Text fontSize={[15,20]}>C++</Text>                        
                     </GridItem>
                     <GridItem textAlign="right">
-                        <Text fontSize="15">ChakraUI</Text>
+                        <Text fontSize={[15,20]}>ChakraUI</Text>
                     </GridItem>
                     <GridItem textAlign="left">
-                        <Text fontSize="15">Python</Text>                        
+                        <Text fontSize={[15,20]}>Python</Text>                        
                     </GridItem>
                     <GridItem textAlign="right">
-                        <Text fontSize="15">MudBlazor</Text>
+                        <Text fontSize={[15,20]}>MudBlazor</Text>
                     </GridItem>
                     <GridItem textAlign="left">
-                        <Text fontSize="15">HTML</Text>
+                        <Text fontSize={[15,20]}>HTML</Text>
                     </GridItem>
                     <GridItem textAlign="right">
-                        <Text fontSize="15">CSS</Text>
+                        <Text fontSize={[15,20]}>CSS</Text>
                     </GridItem>
                     <GridItem textAlign="left">
-                        <Text fontSize="15">SQL</Text>
+                        <Text fontSize={[15,20]}>SQL</Text>
                     </GridItem>
                     <GridItem textAlign="right">
-                        <Text fontSize="15">MongoDB</Text>
+                        <Text fontSize={[15,20]}>MongoDB</Text>
                     </GridItem>
                 </Grid>
             </VStack>

@@ -10,7 +10,7 @@ import DMMLogo from '../Assets/daniel-mauro-music.png';
 function Experience()
 {
     return(
-        <Grid>
+        <Grid w={["100%", "70%"]}>
             <VStack spacing={0}>
                 <a href='https://www.avi.com/'>
                     <Image src={AVILogo}/>

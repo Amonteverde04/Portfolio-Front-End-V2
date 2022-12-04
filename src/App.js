@@ -44,10 +44,10 @@ function App()
 
   return (
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" background={themes.color.bg}>
+      <Box background={themes.color.bg}>
         <Grid
-        paddingTop={50} 
-        paddingBottom={50} 
+        paddingTop={50}
+        paddingBottom={50}
         paddingLeft={30}
         paddingRight={30}
         background="no-repeat url(https://i.imgur.com/Cxo025R.png)"
@@ -88,7 +88,6 @@ function App()
           </VStack>
         </Grid>
         <Grid 
-        paddingTop={50} 
         paddingBottom={50} 
         paddingLeft={30}
         paddingRight={30}
