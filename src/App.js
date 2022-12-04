@@ -30,8 +30,8 @@ const theme = extendTheme({themes});
 
 function App() 
 {
-  const [messageReceived, setMessageReceived] = useState(false);
-  const [messageSent, setMessageSent] = useState(false);
+  const [messageReceived, setMessageReceived] = useState();
+  const [messageSent, setMessageSent] = useState();
   const [Loading, setLoading] = useState(false);
 
   const [FirstName, setFirstName] = useState("");
@@ -43,11 +43,18 @@ function App()
   {
     setLoading(true);
     setMessageSent(true);
+
+    if(FirstName.length === 0 || LastName === 0 || Email.length === 0 || Message.length === 0)
+    {
+      setLoading(false);
+      setMessageSent(false);
+      return;
+    }
+
     await fetch('https://my-portfolio-back-end-heroku.herokuapp.com/post-feedback',
     {
       method: 'POST',
       mode: 'cors',
-      credentials: 'omit',
       headers: 
       {
         'Content-Type': 'application/json',
@@ -59,9 +66,15 @@ function App()
       })
     })
     .then((response)=>{
-      console.log(response.data);
       setLoading(false);
-      setMessageReceived(true);
+      if(response.status === 200)
+      {
+        setMessageReceived(true);
+      }
+      else
+      {
+        setMessageReceived(false);
+      }
     })
     .catch((error)=>{
       setLoading(false);
