@@ -7,9 +7,8 @@ import
 function ProjectCard(props)
 {
     return(
-        <Card maxW="100px" overflow="hidden">
-            <a 
-            href={props.Href}>
+        <Card overflow="hidden">
+            <a href={props.Href}>
                 <Image src={props.ImageLink}/>
             </a>
         </Card>

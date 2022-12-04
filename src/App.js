@@ -36,7 +36,7 @@ function App()
           </VStack>
         </Grid>
       </Box>
-      <Box textAlign="center" fontSize="xl" background="red">
+      <Box textAlign="center" fontSize="xl" background={themes.color.bg}>
         <Grid minH="100vh" paddingTop={50} paddingBottom={50}>
           <VStack spacing={50}>
             <Skills/>
