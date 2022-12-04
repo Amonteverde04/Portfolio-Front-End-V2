@@ -39,21 +39,41 @@ function App()
   const [Email, setEmail] = useState("");
   const [Message, setMessage] = useState("");
 
-  const HandleSubmitClick = () => 
+  const HandleSubmitClick = async () => 
   {
     setLoading(true);
-    setMessageSent(true); // Show an alert
-
-    // await the response from the server
-    setTimeout(function(){setLoading(false)}, 2000); // simulate response delay
-    setMessageReceived(false); // Display success or error
+    setMessageSent(true);
+    await fetch('https://my-portfolio-back-end-heroku.herokuapp.com/post-feedback',
+    {
+      method: 'POST',
+      mode: 'cors',
+      credentials: 'omit',
+      headers: 
+      {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        Name: FirstName + " " + LastName,
+        Email: Email,
+        Feedback: Message
+      })
+    })
+    .then((response)=>{
+      console.log(response.data);
+      setLoading(false);
+      setMessageReceived(true);
+    })
+    .catch((error)=>{
+      setLoading(false);
+      setMessageReceived(false);
+    });
 
     setTimeout(function(){setMessageSent(false)},8000); // Dismiss alert for 8 seconds
   }
 
   return (
     <ChakraProvider theme={theme}>
-      <Box background={themes.color.bg}>
+      <Box background={themes.color.bg} color="white">
         <Grid
         paddingTop={50}
         paddingBottom={50}
@@ -106,6 +126,10 @@ function App()
             <Skills/>
             <Socials/>
             <ContactForm HandleSubmitClick={HandleSubmitClick} Loading={Loading} setFirstName={setFirstName} setLastName={setLastName} setEmail={setEmail} setMessage={setMessage}/>
+            <VStack spacing={0}>
+              <p>Copyright © 2022 Alex Monteverde</p>
+              <p>All rights reserved</p> 
+            </VStack>
           </VStack>
         </Grid>
       </Box>
