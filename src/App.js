@@ -32,14 +32,23 @@ function App()
 {
   const [messageReceived, setMessageReceived] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
+  const [Loading, setLoading] = useState(false);
+
+  const [FirstName, setFirstName] = useState("");
+  const [LastName, setLastName] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Message, setMessage] = useState("");
 
   const HandleSubmitClick = () => 
   {
-      setMessageSent(true);
-      // await the response from the server
-      setMessageReceived(false);
+    setLoading(true);
+    setMessageSent(true); // Show an alert
 
-      setTimeout(function(){setMessageSent(false)},8000);
+    // await the response from the server
+    setTimeout(function(){setLoading(false)}, 2000); // simulate response delay
+    setMessageReceived(false); // Display success or error
+
+    setTimeout(function(){setMessageSent(false)},8000); // Dismiss alert for 8 seconds
   }
 
   return (
@@ -87,16 +96,16 @@ function App()
             <ProjectCardList/>
           </VStack>
         </Grid>
-        <Grid 
-        paddingBottom={50} 
+        <Grid
+        paddingBottom={50}
         paddingLeft={30}
         paddingRight={30}
-        background="no-repeat url(https://i.imgur.com/sgFzm14.png)"
+        background="no-repeat url(https://i.imgur.com/kx4gKt9.png)"
         backgroundSize="cover">
           <VStack spacing={50}>
             <Skills/>
             <Socials/>
-            <ContactForm HandleSubmitClick={HandleSubmitClick}/>
+            <ContactForm HandleSubmitClick={HandleSubmitClick} Loading={Loading} setFirstName={setFirstName} setLastName={setLastName} setEmail={setEmail} setMessage={setMessage}/>
           </VStack>
         </Grid>
       </Box>

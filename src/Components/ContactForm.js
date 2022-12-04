@@ -18,24 +18,29 @@ function ContactForm(props)
                 <HStack>
                     <Box width="50%">
                         <Text fontSize={[15,20]} textAlign="left">First Name</Text>
-                        <Input isRequired/>
+                        <Input isRequired focusBorderColor="white" onChange={(e)=>{props.setFirstName(e.target.value)}}/>
                     </Box>
                     <Box width="50%">
                         <Text fontSize={[15,20]} textAlign="left">Last Name</Text>
-                        <Input isRequired/>
+                        <Input isRequired focusBorderColor="white" onChange={(e)=>{props.setLastName(e.target.value)}}/>
                     </Box>
                 </HStack>
                 <Box>
                     <Text fontSize={[15,20]} textAlign="left">Email</Text>
-                    <Input isRequired/>
+                    <Input isRequired type="Email" focusBorderColor="white" onChange={(e)=>{props.setEmail(e.target.value)}}/>
                 </Box>
                 <Box>
                     <Text fontSize={[15,20]} textAlign="left">Message</Text>
-                    <Textarea fontSize={[15,20]}></Textarea>
+                    <Textarea fontSize={[15,20]} focusBorderColor="white" onChange={(e)=>{props.setMessage(e.target.value)}}/>
                 </Box>
-                <Box></Box>
-                <Box display="flex" alignItems="center" justifyContent="center">
+                <Box 
+                display="flex" 
+                alignItems="center" 
+                justifyContent="center"
+                paddingTop={5}>
                     <Button
+                    disabled={props.Loading}
+                    isLoading={props.Loading}
                     onClick={props.HandleSubmitClick}
                     backgroundColor="#ffffff" 
                     color="#050505"
